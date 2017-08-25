@@ -23,6 +23,9 @@ var store = new vuex.Store({
         commit('setResults', data)
       })
     },
+    // getMusicByArtist({commit, dispatch}, artist){
+        // un-comment when api is moved to the server side
+    // },
     getMyTunes({commit, dispatch}){
       //this should send a get request to your server to return the list of saved tunes
     },
