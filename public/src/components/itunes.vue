@@ -21,7 +21,7 @@
                 <audio controls id="audio-box-song.trackId">
                     <source :src=song.previewUrl type="audio/mp4">
                 </audio>
-                <!-- <button @click="addToMyTunes(song)">Add to MyTunes</button>-->
+                <button @click="addToMyTunes(song)">Add to MyTunes</button>
             </div>
         </div>
     </div>
@@ -44,6 +44,9 @@ export default {
       this.searchOffset = 0;
       this.lastQuery = this.query;
       this.$store.dispatch('getMusicByArtist', {query: this.query, offset: this.searchOffset})
+    },
+    addToMyTunes(song){
+        this.$store.dispatch('addToMyTunes', song)
     }
   },
     computed: {

@@ -1,20 +1,20 @@
 <template>
   <div class="home">
     <!-- YOU WILL PROBABLY END UP WITH SOMETHING LIKE THIS -->
-    <!--<mytunes class="mytunes"></mytunes>-->
+    <mytunes class="mytunes"></mytunes>
     <itunes class="itunes"></itunes>
   </div>
 </template>
 
 <script>
 import itunes from './components/itunes'
-// import mytunes from './components/mytunes'
+import mytunes from './components/mytunes'
 
 export default {
   name: 'App',
   components: {
     itunes,
-    // mytunes 
+    mytunes 
   }
 }
 </script>
