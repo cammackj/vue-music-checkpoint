@@ -10,8 +10,8 @@ var store = new vuex.Store({
     results: []
   },
   mutations: {
-    setResults(state, results){
-      state.results = results
+    searchResults(state, results){
+      state.results = results;
     }
   },
   actions: {
@@ -20,12 +20,17 @@ var store = new vuex.Store({
       var url2 = 'https://itunes.apple.com/search?term=' + artist;
       var apiUrl = url + encodeURIComponent(url2);
       $.get(apiUrl).then(data=>{
-        commit('setResults', data)
+        var songs = JSON.parse(data);
+        commit('searchResults', songs.results)
+        console.log(songs.results)
       })
     },
     // getMusicByArtist({commit, dispatch}, artist){
         // un-comment when api is moved to the server side
     // },
+    searchResults({commit, dispatch}){
+
+    },
     getMyTunes({commit, dispatch}){
       //this should send a get request to your server to return the list of saved tunes
     },
