@@ -14,16 +14,16 @@ var store = new vuex.Store({
       state.results = results;
     },
     saveTunes(state, song){
-      state.myTunes.push(song)
+      state.myTunes.push(song);
     },
     removeTunes(state, song){
-      var index = state.myTunes.indexOf(song)
-      state.myTunes.splice(index, 1)
+      var index = state.myTunes.indexOf(song);
+      state.myTunes.splice(index, 1);
     },
     promoteSong(state, payload){
-      let temp = state.myTunes[payload.index] 
-      vue.set(state.myTunes, payload.index, state.myTunes[payload.newIndex])
-      vue.set(state.myTunes, payload.newIndex, temp)
+      let temp = state.myTunes[payload.index];
+      vue.set(state.myTunes, payload.index, state.myTunes[payload.newIndex]);
+      vue.set(state.myTunes, payload.newIndex, temp);
     },
   },
   actions: {
@@ -33,7 +33,7 @@ var store = new vuex.Store({
       var apiUrl = url + encodeURIComponent(url2);
       $.get(apiUrl).then(data=>{
         var songs = JSON.parse(data);
-        commit('searchResults', songs.results)
+        commit('searchResults', songs.results);
       })
     },
     // getMusicByArtist({commit, dispatch}, artist){
@@ -46,15 +46,15 @@ var store = new vuex.Store({
       //this should send a get request to your server to return the list of saved tunes
     },
     addToMyTunes({commit, dispatch}, song){
-      commit('saveTunes', song)
+      commit('saveTunes', song);
       //this will post to your server adding a new track to your tunes
     },
     removeTrack({commit, dispatch}, song){
-      commit('removeTunes', song)
+      commit('removeTunes', song);
       //Removes track from the database with delete
     },
     promoteTrack({commit, dispatch}, payload){
-      commit('promoteSong', payload)
+      commit('promoteSong', payload);
       //this should increase the position / upvotes and downvotes on the track
     },
   }

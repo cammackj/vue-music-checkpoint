@@ -31,22 +31,22 @@ export default {
   },
   methods: {
      removeTrack(song){
-          this.$store.dispatch('removeTrack', song)
+          this.$store.dispatch('removeTrack', song);
      },
   promoteTrack(song){
-        var songs = this.$store.state.myTunes
-        var index = songs.indexOf(song)
-        var newIndex = index - 1
+        var songs = this.$store.state.myTunes;
+        var index = songs.indexOf(song);
+        var newIndex = index - 1;
         if (newIndex >= 0){
-            this.$store.dispatch('promoteTrack', {index, newIndex})
+            this.$store.dispatch('promoteTrack', {index, newIndex});
         }
     },
     demoteTrack(song){
-        var songs = this.$store.state.myTunes
-        var index = songs.indexOf(song)
-        var newIndex = index + 1
+        var songs = this.$store.state.myTunes;
+        var index = songs.indexOf(song);
+        var newIndex = index + 1;
         if (newIndex < songs.length){
-            this.$store.dispatch('promoteTrack', {index, newIndex})
+            this.$store.dispatch('promoteTrack', {index, newIndex});
         }
     }
   },

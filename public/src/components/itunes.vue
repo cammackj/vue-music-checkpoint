@@ -43,13 +43,13 @@ export default {
     searchResults() {
       this.searchOffset = 0;
       this.lastQuery = this.query;
-      this.$store.dispatch('getMusicByArtist', {query: this.query, offset: this.searchOffset})
+      this.$store.dispatch('getMusicByArtist', {query: this.query, offset: this.searchOffset});
     },
     addToMyTunes(song){
-        var songs = this.$store.state.myTunes
-        var index = songs.indexOf(song)
+        var songs = this.$store.state.myTunes;
+        var index = songs.indexOf(song);
         if(index == -1){
-        this.$store.dispatch('addToMyTunes', song)
+        this.$store.dispatch('addToMyTunes', song);
         }
     }
   },
