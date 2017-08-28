@@ -23,7 +23,7 @@ export default {
 .mytunes{
   display: inline-block;
   min-height: 500px;
-  min-width: 50%;
+  min-width: 45%;
   background: green;
 }
 

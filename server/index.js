@@ -13,7 +13,7 @@ server.use('/', cors({
 	credentials: true
 }))
 //MIDDLEWARE
-// server.use(express.static(__dirname + "/"));
+server.use(express.static(__dirname + "/"));
 server.use(bodyParser.json());
 server.use(bodyParser.urlencoded({ extended: true }));
 
@@ -27,10 +27,10 @@ function authenticate(req, res, next) {
 	return res.send(401, "please login to continue");
 }
 server.use('/', authenticate);
-server.use('/api/categories', categoryRoute);
-server.use('/api/comments', commentRoute);
-server.use('/api/gifResponses', gifResponseRoute);
-server.use('/api/quotes', quoteRoute);
+// server.use('/api/categories', categoryRoute);
+// server.use('/api/comments', commentRoute);
+// server.use('/api/gifResponses', gifResponseRoute);
+// server.use('/api/quotes', quoteRoute);
 // server.use('/api/users', userRoute);
 
 server.listen(port, () => {

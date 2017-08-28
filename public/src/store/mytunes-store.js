@@ -18,6 +18,16 @@ var store = new vuex.Store({
     },
     removeTunes(state, song){
       state.myTunes.pop(song)
+    },
+    promoteSong(state, payload){
+      let temp = state.myTunes[payload.index] 
+      vue.set(state.myTunes, payload.index, state.myTunes[payload.newIndex])
+      vue.set(state.myTunes, payload.newIndex, temp)
+    },
+    demoteSong(state, payload){
+      let temp = state.myTunes[payload.index] 
+      vue.set(state.myTunes, payload.index, state.myTunes[payload.newIndex])
+      vue.set(state.myTunes, payload.newIndex, temp)
     }
   },
   actions: {
@@ -47,7 +57,8 @@ var store = new vuex.Store({
       commit('removeTunes', song)
       //Removes track from the database with delete
     },
-    promoteTrack({commit, dispatch}, song){
+    promoteTrack({commit, dispatch}, payload){
+      commit('promoteSong', payload)
       //this should increase the position / upvotes and downvotes on the track
     },
     demoteTrack({commit, dispatch}, song){

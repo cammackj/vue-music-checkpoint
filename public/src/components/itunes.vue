@@ -4,7 +4,7 @@
       <div class="col-xs-12">
         <form @submit.prevent="searchResults()">
           <div class="col md12">
-            <input type="text" v-model="query">
+            <input type="text" v-model='query'>
           </div>
           <div class="col md2">
             <button type="submit" class="btn"> search</button>
@@ -46,7 +46,11 @@ export default {
       this.$store.dispatch('getMusicByArtist', {query: this.query, offset: this.searchOffset})
     },
     addToMyTunes(song){
+        var songs = this.$store.state.myTunes
+        var index = songs.indexOf(song)
+        if(index == -1){
         this.$store.dispatch('addToMyTunes', song)
+        }
     }
   },
     computed: {
