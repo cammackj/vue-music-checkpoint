@@ -3,7 +3,7 @@ var bodyParser = require("body-parser");
 var mongoose = require("mongoose");
 var authRoutes = require('./authentication/auth-routes');
 var sessions = require('./authentication/sessions');
-var userRoute = require('./routes/user-route')
+// var userRoute = require('./routes/user-route')
 var server = express();
 var port = 3000;
 
@@ -13,7 +13,7 @@ server.use('/', cors({
 	credentials: true
 }))
 //MIDDLEWARE
-server.use(express.static(__dirname + "/"));
+server.use(express.static(__dirname + "/../public/dist"));
 server.use(bodyParser.json());
 server.use(bodyParser.urlencoded({ extended: true }));
 
