@@ -5,7 +5,7 @@ var authRoutes = require('./authentication/auth-routes');
 var sessions = require('./authentication/sessions');
 // var userRoute = require('./routes/user-route')
 var server = express();
-var port = 3000;
+var port = process.env.PORT || 3000;
 
 var cors = require('cors')
 server.use('/', cors({
@@ -34,7 +34,7 @@ server.use('/', authenticate);
 // server.use('/api/users', userRoute);
 
 server.listen(port, () => {
-	console.log("starting up Node, on port 3000")
+	console.log("starting up Node, on port", port)
 });
 
 var dbConnect = require("./config/db/mlab-config");
