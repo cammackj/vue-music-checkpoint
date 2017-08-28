@@ -24,11 +24,6 @@ var store = new vuex.Store({
       vue.set(state.myTunes, payload.index, state.myTunes[payload.newIndex])
       vue.set(state.myTunes, payload.newIndex, temp)
     },
-    demoteSong(state, payload){
-      let temp = state.myTunes[payload.index] 
-      vue.set(state.myTunes, payload.index, state.myTunes[payload.newIndex])
-      vue.set(state.myTunes, payload.newIndex, temp)
-    }
   },
   actions: {
     getMusicByArtist({commit, dispatch}, artist) {
@@ -61,10 +56,6 @@ var store = new vuex.Store({
       commit('promoteSong', payload)
       //this should increase the position / upvotes and downvotes on the track
     },
-    demoteTrack({commit, dispatch}, song){
-      //this should decrease the position / upvotes and downvotes on the track
-    }
-
   }
 })
 
