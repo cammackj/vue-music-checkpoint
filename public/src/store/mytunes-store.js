@@ -17,7 +17,8 @@ var store = new vuex.Store({
       state.myTunes.push(song)
     },
     removeTunes(state, song){
-      state.myTunes.pop(song)
+      var index = state.myTunes.indexOf(song)
+      state.myTunes.splice(index, 1)
     },
     promoteSong(state, payload){
       let temp = state.myTunes[payload.index] 
