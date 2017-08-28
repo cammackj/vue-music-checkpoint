@@ -4,7 +4,7 @@
       <div class="col-xs-12">
         <form @submit.prevent="searchResults()">
           <div class="col md12">
-            <input type="text" v-model='query'>
+            <input type="text" v-model="query">
           </div>
           <div class="col md2">
             <button type="submit" class="btn"> search</button>
